@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 val items = listOf(Screen.Home, Screen.Profile, Screen.Compass, Screen.Messages, Screen.Add)
 
-sealed class Screen(val route: String?, val title: String?, val icon: ImageVector?)  {
+sealed class Screen(val route: String, val title: String?, val icon: ImageVector?)  {
     object Home: Screen("home", "Home", Icons.Default.Home)
     object Profile: Screen("profile", "Profile", Icons.Default.Person)
     object Compass: Screen("compass", "Compass", Icons.Default.PlayArrow)

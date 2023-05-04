@@ -1,4 +1,4 @@
-package com.example.aventi.ui.elements
+package com.example.aventi.ui.elements.navigation
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.CircleShape
@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.aventi.Screen
-import com.example.aventi.ui.elements.navigation.BottomNav
 
+//@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun BottomBarWithFab() {
     val navController = rememberNavController()
@@ -33,7 +33,7 @@ fun BottomBarWithFab() {
             FloatingActionButton(
                 shape = CircleShape,
                 onClick = {
-                    Screen.Add.route?.let {
+                    Screen.Add.route.let {
                         navController.navigate(it) {
                             popUpTo(navController.graph.findStartDestination().id) {
                                 saveState = true
@@ -42,7 +42,7 @@ fun BottomBarWithFab() {
                             restoreState = true
                         }
                     }
-                    Screen.Add.route?.let { navController.navigate(it) }
+                    Screen.Add.route.let { navController.navigate(it) }
                 },
                 contentColor = Color.White
             ) {
@@ -50,6 +50,7 @@ fun BottomBarWithFab() {
             }
         }
     ) {
-        MainScreenNavigation(navController)
+
+        MainScreenNavigation(navController, it)
     }
 }
