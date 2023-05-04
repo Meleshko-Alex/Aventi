@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.aventi.Screen
+import com.example.aventi.ui.elements.navigation.BottomNav
 
 @Composable
 fun BottomBarWithFab() {
