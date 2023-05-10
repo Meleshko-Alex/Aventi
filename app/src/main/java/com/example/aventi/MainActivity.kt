@@ -3,28 +3,16 @@ package com.example.aventi
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.aventi.ui.elements.navigation.BottomBarWithFab
+import com.example.aventi.ui.screens.HomeScreen
 import com.example.aventi.ui.theme.AventiTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AventiTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    BottomBarWithFab()
-                }
-            }
+            HomeScreen()
         }
     }
 }
@@ -33,6 +21,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     AventiTheme {
-        BottomBarWithFab()
+        HomeScreen()
     }
 }

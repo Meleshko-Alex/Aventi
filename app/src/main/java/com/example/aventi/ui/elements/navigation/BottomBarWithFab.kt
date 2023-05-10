@@ -1,28 +1,30 @@
 package com.example.aventi.ui.elements.navigation
 
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.aventi.Screen
+import com.example.aventi.R
+import com.example.aventi.ui.theme.AventiTheme
 
-//@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun BottomBarWithFab() {
     val navController = rememberNavController()
     Scaffold(
+        backgroundColor = Color.Transparent,
         bottomBar = {
             BottomAppBar(
-                modifier = Modifier.height(58.dp),
+                Modifier.fillMaxWidth(),
                 cutoutShape = CircleShape,
-                elevation = 22.dp
+                backgroundColor = Color.Transparent
             ) {
                 BottomNav(navController = navController)
             }
@@ -44,13 +46,26 @@ fun BottomBarWithFab() {
                     }
                     Screen.Add.route.let { navController.navigate(it) }
                 },
-                contentColor = Color.White
+                contentColor = Color.White,
+                backgroundColor = colorResource(R.color.fab)
             ) {
-                Icon(imageVector = Icons.Filled.Check, contentDescription = "Add icon")
+                Screen.Add.iconResource?.let {
+                    Icon(
+                        painter = painterResource(it),
+                        contentDescription = "Add icon"
+                    )
+                }
             }
         }
     ) {
-
         MainScreenNavigation(navController, it)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    AventiTheme {
+        BottomBarWithFab()
     }
 }

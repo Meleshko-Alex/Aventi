@@ -1,15 +1,16 @@
 package com.example.aventi
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.ui.graphics.vector.ImageVector
 
-val items = listOf(Screen.Home, Screen.Profile, Screen.Compass, Screen.Messages, Screen.Add)
+val items = listOf(Screen.Home, Screen.Profile, null,  Screen.Compass, Screen.Messages)
 
-sealed class Screen(val route: String, val title: String?, val icon: ImageVector?)  {
-    object Home: Screen("home", "Home", Icons.Default.Home)
-    object Profile: Screen("profile", "Profile", Icons.Default.Person)
-    object Compass: Screen("compass", "Compass", Icons.Default.PlayArrow)
-    object Messages: Screen("messages", "Messages", Icons.Default.Email)
-    object Add: Screen("add", "Add", Icons.Default.Add)
+sealed class Screen(val route: String, val title: String?, val iconResource: Int?) {
+    object Home : Screen("home", "Home", R.drawable.home)
+
+    object Profile : Screen("profile", "Profile", R.drawable.profile)
+
+    object Compass : Screen("compass", "Compass", R.drawable.compass)
+
+    object Messages : Screen("messages", "Messages", R.drawable.message)
+
+    object Add : Screen("add", null, R.drawable.plus)
 }
