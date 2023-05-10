@@ -1,4 +1,4 @@
-package com.example.aventi.ui.elements.navigation
+package com.example.aventi.ui.elements.navigation.navigation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.BottomNavigation

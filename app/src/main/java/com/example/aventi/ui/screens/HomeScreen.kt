@@ -9,7 +9,7 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import com.example.aventi.R
-import com.example.aventi.ui.elements.navigation.BottomBarWithFab
+import com.example.aventi.ui.elements.navigation.navigation.BottomBarWithFab
 
 @Composable
 fun HomeScreen() {
