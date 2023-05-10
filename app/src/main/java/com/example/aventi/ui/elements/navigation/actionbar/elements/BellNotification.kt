@@ -5,9 +5,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,11 +21,12 @@ import com.example.aventi.ui.theme.AventiTheme
 fun BellNotification(hasNotification: Boolean) {
     Box(modifier = Modifier.size(26.dp, 30.dp)) {
         // Bell icon
-        Image(
+        Icon(
             painter = painterResource(R.drawable.bell),
             contentDescription = "Bell icon",
             modifier = Modifier
-                .align(Alignment.BottomStart)
+                .align(Alignment.BottomStart),
+            tint = Color.White
         )
 
         // Notification circle
