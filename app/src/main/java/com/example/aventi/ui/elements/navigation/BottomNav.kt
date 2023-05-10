@@ -37,8 +37,6 @@ fun BottomNav(navController: NavController) {
                     }
                 },
                 selected = currentRoute?.hierarchy?.any { it.route == it.route } == true,
-
-                //selectedContentColor = colorResource(R.color.white),
                 unselectedContentColor = Color.White.copy(alpha = 0.4f),
                 onClick = {
                     it?.route.let { it1 ->

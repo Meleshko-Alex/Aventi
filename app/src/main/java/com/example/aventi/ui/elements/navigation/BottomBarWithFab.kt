@@ -1,6 +1,7 @@
 package com.example.aventi.ui.elements.navigation
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ import com.example.aventi.ui.theme.AventiTheme
 fun BottomBarWithFab() {
     val navController = rememberNavController()
     Scaffold(
+        modifier = Modifier.navigationBarsPadding(),
         backgroundColor = Color.Transparent,
         bottomBar = {
             BottomAppBar(
