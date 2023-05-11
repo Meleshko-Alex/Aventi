@@ -10,5 +10,6 @@
 
     <color name="fab">#195339</color>
     <color name="notification">#3A906A</color>
+    <color name="action_name">#FEFF9C</color>
     <color name="transparent">#00000000</color>
 </resources>

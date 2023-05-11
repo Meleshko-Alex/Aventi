@@ -2,21 +2,20 @@ package com.example.aventi.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.magnifier
 import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.aventi.R
+import com.example.aventi.ui.card.infocard.InfoCard
 import com.example.aventi.ui.elements.navigation.actionbar.AventiActionBar
 import com.example.aventi.ui.elements.navigation.navigation.BottomBarWithFab
 
@@ -26,11 +25,9 @@ fun HomeScreen() {
         modifier = with(Modifier) {
             fillMaxSize()
                 .paint(
-                    // Replace with your image id
                     painterResource(id = R.drawable.blurred_background),
                     contentScale = ContentScale.FillBounds
                 )
-
         })
     {
         Column {
@@ -45,6 +42,8 @@ fun HomeScreen() {
                 modifier = Modifier.padding(start = 16.dp, top = 30.dp),
                 tint = Color.White
             )
+            Spacer(modifier = Modifier.height(16.dp))
+            InfoCard(imageBackground = R.drawable.pickture_mock_1)
         }
 
         BottomBarWithFab()
