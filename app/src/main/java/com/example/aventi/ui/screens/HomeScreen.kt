@@ -35,7 +35,7 @@ fun HomeScreen() {
     {
         Column {
             AventiActionBar(
-                avatar = ImageBitmap.imageResource(R.drawable.mock_david_avatar),
+                avatar = R.drawable.mock_david_avatar,
                 name = "Aventi",
                 hasNotification = true
             )

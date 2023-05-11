@@ -28,10 +28,9 @@ import com.example.aventi.ui.elements.navigation.actionbar.elements.BellNotifica
 import com.example.aventi.ui.theme.AventiTheme
 
 @Composable
-fun AventiActionBar(avatar: ImageBitmap, name: String, hasNotification: Boolean) {
+fun AventiActionBar(avatar: Int, name: String, hasNotification: Boolean) {
     Row(
         modifier = Modifier
-            //.size(height = 30.dp, width = )
             .padding(top = 66.dp, start = 16.dp, end = 16.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -39,7 +38,7 @@ fun AventiActionBar(avatar: ImageBitmap, name: String, hasNotification: Boolean)
         // Round avatar
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(R.drawable.mock_david_avatar)
+                .data(avatar)
                 .crossfade(true)
                 .build(),
             contentDescription = null,
@@ -49,29 +48,16 @@ fun AventiActionBar(avatar: ImageBitmap, name: String, hasNotification: Boolean)
             contentScale = ContentScale.Crop
         )
 
-
-        /*AsyncImage(
-            bitmap = avatar,
-            contentDescription = "Avatar",
-            modifier = Modifier
-                .size(30.dp)
-                .clip(CircleShape)
-        )*/
-
         // Text in the middle - Aventi
         Spacer(modifier = Modifier.weight(1f))
         Text(
             text = name,
             color = Color.White,
-            //fontFamily = FontFamily(Font(R.font.aventi)),
             fontSize = 23.sp,
             fontWeight = FontWeight.SemiBold,
-            /*modifier = Modifier
-                .padding(end = 16.dp)
-                .weight(1f)*/
         )
 
-        // Image at the end - indented by 16dp, 16dp by 16dp
+        // BellNotification
         Spacer(modifier = Modifier.weight(1f))
         BellNotification(hasNotification = hasNotification)
     }
@@ -82,7 +68,7 @@ fun AventiActionBar(avatar: ImageBitmap, name: String, hasNotification: Boolean)
 fun BellNotificationPreview() {
     AventiTheme {
         AventiActionBar(
-            avatar = ImageBitmap.imageResource(R.drawable.mock_david_avatar),
+            avatar = R.drawable.mock_david_avatar,
             name = "Aventi",
             hasNotification = true
         )
