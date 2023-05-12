@@ -13,11 +13,15 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.aventi.R
+import com.example.aventi.ui.card.infocard.AventiFooter
 import com.example.aventi.ui.card.infocard.InfoCard
+import com.example.aventi.ui.card.infocard.getMockAdventure
 import com.example.aventi.ui.elements.navigation.actionbar.AventiActionBar
 import com.example.aventi.ui.elements.navigation.navigation.BottomBarWithFab
+import com.example.aventi.ui.theme.AventiTheme
 
 @Composable
 fun HomeScreen() {
@@ -43,9 +47,21 @@ fun HomeScreen() {
                 tint = Color.White
             )
             Spacer(modifier = Modifier.height(16.dp))
-            InfoCard(imageBackground = R.drawable.pickture_mock_1)
+
+            Column(Modifier.fillMaxSize()) {
+                InfoCard(imageBackground = R.drawable.pickture_mock_1)
+                AventiFooter(getMockAdventure())
+            }
         }
 
         BottomBarWithFab()
+    }
+}
+
+@Preview
+@Composable
+fun HomeScreenPreview() {
+    AventiTheme {
+        HomeScreen()
     }
 }
