@@ -1,15 +1,15 @@
 package com.example.aventi.ui.card.infocard
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,10 +21,12 @@ import com.example.aventi.ui.theme.AventiTheme
 
 @Composable
 fun InfoCard(imageBackground: Int) {
-    Box(
+    Card(
+        shape = RoundedCornerShape(10.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .size(height = 495.dp, width = 200.dp)
+            .padding(start = 2.dp, end = 2.dp)
+            .size(height = 420.dp, width = 200.dp)
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
@@ -33,18 +35,19 @@ fun InfoCard(imageBackground: Int) {
                 .build(),
             contentDescription = null,
             modifier = Modifier
-                .fillMaxSize()
-                .clip(RoundedCornerShape(8.dp)),
+                .fillMaxSize(),
             contentScale = ContentScale.FillBounds
         )
 
-        AvatarAndName(R.drawable.mock_john_avatar, "John Smith")
+        Column {
+            AvatarAndName(R.drawable.mock_john_avatar, "John Smith")
 
-        Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Bottom) {
-            AdventureActionList(
-                "Rockclimbing in Blue Mountain",
-                listOf("Rockclimbing", "Hiking", "Exploring")
-            )
+            Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Bottom) {
+                AdventureActionList(
+                    "Rockclimbing in Blue Mountain",
+                    listOf("Rockclimbing", "Hiking", "Exploring")
+                )
+            }
         }
     }
 }
